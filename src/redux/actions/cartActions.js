@@ -4,7 +4,7 @@ export const addToCart = (product) => (dispatch, getState) => {
       payload: product,
     });
   
-    // Cart ko localStorage mein save karo taaki refresh hone par data na ude
+    // Save the cart to localstorage so that the data is not lost on refresh
     localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
   };
   

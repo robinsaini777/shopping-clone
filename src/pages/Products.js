@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { addToCart } from "../redux/cartSlice"; // Ensure correct import path
+import { addToCart } from "../redux/cartSlice"; 
+import "../styles/Products.css";
+
 
 const Products = () => {
   const products = useSelector((state) => state.products.products);

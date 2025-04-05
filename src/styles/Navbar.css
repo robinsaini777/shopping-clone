@@ -1,0 +1,177 @@
+/* ✅ Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: #007bff;
+  color: white;
+  position: relative;
+  z-index: 1000;
+  width: 100%;
+}
+
+/* ✅ Logo */
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+/* ✅ Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* ✅ Menu Icon for Mobile */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ✅ Navbar Items */
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+.navbar ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s ease-in-out;
+}
+
+/* ✅ Hover Effect */
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* ✅ Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.search-bar input {
+  border: none;
+  padding: 5px;
+  outline: none;
+  width: 200px;
+}
+
+.search-bar button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+/* ✅ Dropdown Fix */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Button */
+.dropbtn {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ✅ Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #6bb1da; /* 👈 Fix: अब Transparent नहीं होगा */
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  min-width: 200px; /* 👈 Width Fixed */
+  text-align: left;
+  display: none; /* 👈 No Fade, Directly Hide */
+  z-index: 9999; /* 👈 High Z-Index */
+  border: 1px solid #ccc; /* 👈 हल्का बॉर्डर ताकि Clearly दिखे */
+}
+
+/* ✅ Show Dropdown on Hover (No Fade) */
+.dropdown:hover .dropdown-menu {
+  display: block; /* 👈 No Opacity, No Fade */
+}
+
+/* ✅ Dropdown Items */
+.dropdown-menu li {
+  padding: 12px 15px;
+  transition: background 0.3s ease-in-out;
+  text-align: left;
+}
+
+.dropdown-menu li a {
+  color: black;
+  display: block;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+/* ✅ Hover Effect */
+.dropdown-menu li:hover {
+  background: black;
+}
+
+/* ✅ Responsive Navbar for Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background: #007bff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding: 10px 0;
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+/* ✅ Mobile Fix */
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: #007bff;
+    text-align: center;
+  }
+
+  .dropdown-menu li a {
+    color: white;
+  }
+
+  .dropdown-menu li:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+}

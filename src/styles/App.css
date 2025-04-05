@@ -1,4 +1,12 @@
-body {
+/* 🌟 Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  }
+
+  body {
     font-family: Arial, sans-serif;
   }
   
@@ -23,4 +31,5 @@ body {
     border-bottom: 1px solid #ddd;
     padding: 10px;
   }
+  
   
