@@ -24,13 +24,7 @@
   display: flex;
   gap: 20px;
   list-style: none;
-}
-
-/* ✅ Menu Icon for Mobile */
-.menu-icon {
-  display: none;
-  font-size: 24px;
-  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 /* ✅ Navbar Items */
@@ -81,16 +75,28 @@
   color: #333;
 }
 
-/* ✅ Dropdown Fix */
+/* ✅ Menu Icon for Mobile */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ✅ Dropdown */
 .dropdown {
   position: relative;
   display: inline-block;
 }
 
-/* Dropdown Button */
+/* ✅ Dropdown Button */
 .dropbtn {
   cursor: pointer;
   font-weight: bold;
+  color: white;
+  background: none;
+  border: none;
+  font-size: 18px;
 }
 
 /* ✅ Dropdown Menu */
@@ -98,24 +104,22 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: #6bb1da; /* 👈 Fix: अब Transparent नहीं होगा */
+  background: #6bb1da;
   list-style: none;
   padding: 10px 0;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  min-width: 200px; /* 👈 Width Fixed */
+  min-width: 200px;
   text-align: left;
-  display: none; /* 👈 No Fade, Directly Hide */
-  z-index: 9999; /* 👈 High Z-Index */
-  border: 1px solid #ccc; /* 👈 हल्का बॉर्डर ताकि Clearly दिखे */
+  display: none;
+  z-index: 9999;
+  border: 1px solid #ccc;
 }
 
-/* ✅ Show Dropdown on Hover (No Fade) */
 .dropdown:hover .dropdown-menu {
-  display: block; /* 👈 No Opacity, No Fade */
+  display: block;
 }
 
-/* ✅ Dropdown Items */
 .dropdown-menu li {
   padding: 12px 15px;
   transition: background 0.3s ease-in-out;
@@ -129,24 +133,24 @@
   text-decoration: none;
 }
 
-/* ✅ Hover Effect */
 .dropdown-menu li:hover {
   background: black;
+  color: white;
 }
 
 /* ✅ Responsive Navbar for Mobile */
 @media (max-width: 768px) {
   .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background: #007bff;
     position: absolute;
     top: 60px;
     left: 0;
+    background: #007bff;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    display: none;
     padding: 10px 0;
-    z-index: 999;
+    gap: 15px;
   }
 
   .nav-links.active {
@@ -156,15 +160,18 @@
   .menu-icon {
     display: block;
   }
-}
 
-/* ✅ Mobile Fix */
-@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
     background: #007bff;
     text-align: center;
+    border: none;
   }
 
   .dropdown-menu li a {
