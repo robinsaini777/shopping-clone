@@ -107,7 +107,6 @@ const Home = () => {
       <section className="newsletter">
         <h2 data-aos="fade-up">Stay Updated</h2>
         <p>Sign up for our newsletter to get the latest deals.</p>
-        <br />
         <input type="email" placeholder="Enter your email" />{" "}
         <button className="newsletter-btn">Subscribe</button>
       </section>

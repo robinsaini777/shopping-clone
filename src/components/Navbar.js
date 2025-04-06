@@ -9,12 +9,10 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Toggle dropdown on click for mobile
   const handleDropdownToggle = () => {
     setShowDropdown(!showDropdown);
   };
 
-  // Close menu and dropdown
   const closeMenus = () => {
     setIsMenuOpen(false);
     setShowDropdown(false);
@@ -23,8 +21,12 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="top-row">
-        <div className="logo">꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹.𝓬𝓸𝓶 ༻꧂</div>
-        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>☰</div>
+        <Link to="/" className="logo">
+          ꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹 ༻꧂
+        </Link>
+        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          ☰
+        </div>
       </div>
 
       <div className="search-bar">
@@ -38,13 +40,15 @@ const Navbar = () => {
 
         {/* Dropdown */}
         <li className="dropdown">
-          <span className="dropbtn" onClick={handleDropdownToggle}>Categories ▼</span>
+          <span className="dropbtn" onClick={handleDropdownToggle}>
+            Categories ▼
+          </span>
           {showDropdown && (
             <ul className="dropdown-menu">
-              <li><Link to="/category/fashion" onClick={closeMenus}>Fashion</Link></li>
-              <li><Link to="/category/electronics" onClick={closeMenus}>Electronics</Link></li>
-              <li><Link to="/category/home-living" onClick={closeMenus}>Home & Living</Link></li>
-              <li><Link to="/category/appliances" onClick={closeMenus}>Appliances</Link></li>
+              <li><Link to="/category/fashion" onClick={closeMenus}>👗 Fashion</Link></li>
+              <li><Link to="/category/electronics" onClick={closeMenus}>📱 Electronics</Link></li>
+              <li><Link to="/category/home-living" onClick={closeMenus}>🏠 Home & Living</Link></li>
+              <li><Link to="/category/appliances" onClick={closeMenus}>🧺 Appliances</Link></li>
             </ul>
           )}
         </li>
@@ -54,7 +58,11 @@ const Navbar = () => {
             🛒 Cart <span className="cart-count">({cartItems.length})</span>
           </Link>
         </li>
-        <li><Link to="/login" onClick={closeMenus}><FaUser /> Login</Link></li>
+        <li>
+          <Link to="/login" onClick={closeMenus}>
+            <FaUser /> Login
+          </Link>
+        </li>
       </ul>
     </nav>
   );
