@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/shopping-clone/static/css/main.d192780e.css",
-    "main.js": "/shopping-clone/static/js/main.1f0a6bfb.js",
+    "main.css": "/shopping-clone/static/css/main.dc6e57ea.css",
+    "main.js": "/shopping-clone/static/js/main.70618522.js",
     "static/media/fa-solid-900.ttf": "/shopping-clone/static/media/fa-solid-900.2582b0e4bcf85eceead0.ttf",
     "static/media/fa-brands-400.ttf": "/shopping-clone/static/media/fa-brands-400.1815e00441357e01619e.ttf",
     "static/media/Screenshot (72).png": "/shopping-clone/static/media/Screenshot (72).5fda7569fe50d12140cf.png",
@@ -14,11 +14,11 @@
     "static/media/two.webp": "/shopping-clone/static/media/two.a89675034ae3db66ac67.webp",
     "static/media/fa-v4compatibility.woff2": "/shopping-clone/static/media/fa-v4compatibility.ea8f94e1d22e0d35ccd4.woff2",
     "index.html": "/shopping-clone/index.html",
-    "main.d192780e.css.map": "/shopping-clone/static/css/main.d192780e.css.map",
-    "main.1f0a6bfb.js.map": "/shopping-clone/static/js/main.1f0a6bfb.js.map"
+    "main.dc6e57ea.css.map": "/shopping-clone/static/css/main.dc6e57ea.css.map",
+    "main.70618522.js.map": "/shopping-clone/static/js/main.70618522.js.map"
   },
   "entrypoints": [
-    "static/css/main.d192780e.css",
-    "static/js/main.1f0a6bfb.js"
+    "static/css/main.dc6e57ea.css",
+    "static/js/main.70618522.js"
   ]
 }
