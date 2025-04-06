@@ -49,7 +49,7 @@ const Home = () => {
             <div className="category-card" data-aos="zoom-in">🏠 Home & Living</div>
           </Link>
 
-          <Link to="/category/Appliances">
+          <Link to="/category/appliances">
             <div className="category-card" data-aos="zoom-in">📻 Appliances</div>
           </Link>
 

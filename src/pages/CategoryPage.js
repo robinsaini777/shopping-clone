@@ -1,31 +1,43 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import productData from "../data/categoryProducts"; 
+import categoryProducts from "../data/categoryProducts";
 import "../styles/CategoryPage.css";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
 
 const CategoryPage = () => {
-  const { name } = useParams();
+  const { name: categoryName } = useParams();
+  const dispatch = useDispatch();
 
-  // Filter products based on category
-  const filteredProducts = productData.filter(
-    (product) => product.category.toLowerCase() === name.toLowerCase()
-  );
+  // ✅ Get products for selected category
+  const products = categoryProducts[categoryName] || [];
+
+  const handleAddToCart = (product) => {
+    dispatch(addToCart(product));
+  };
+
+  // ✅ If category name or products are invalid
+  if (!categoryName || products.length === 0) {
+    return <h2 className="category-title">Category not found!</h2>;
+  }
 
   return (
-    <div className="category-container">
-      <h2>{name.toUpperCase()} Products</h2>
-      <div className="products-grid">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
-            <div key={product.id} className="product-card">
-              <img src={product.image} alt={product.name} />
-              <h3>{product.name}</h3>
-              <p>₹{product.price}</p>
-            </div>
-          ))
-        ) : (
-          <p>No products found in this category.</p>
-        )}
+    <div className="category-page">
+      <h2 className="category-title">{categoryName.toUpperCase()}</h2>
+      <div className="category-products">
+        {products.map((product) => (
+          <div key={product.id} className="category-product-card">
+            <img src={product.image} alt={product.name} />
+            <h3>{product.name}</h3>
+            <p>₹{product.price}</p>
+            <button
+              className="add-to-cart-btn"
+              onClick={() => handleAddToCart(product)}
+            >
+              Add to Cart
+            </button>
+          </div>
+        ))}
       </div>
     </div>
   );

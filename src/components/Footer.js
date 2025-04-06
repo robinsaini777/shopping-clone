@@ -11,7 +11,7 @@ const Footer = () => {
           <p>Contact Us</p>
           <p>About Us</p>
           <p>Careers</p>
-          <p>Flipkart Stories</p>
+          <p>MyShop Stories</p>
         </div>
 
         <div className="footer-section">
