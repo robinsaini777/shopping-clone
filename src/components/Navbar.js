@@ -9,55 +9,52 @@ const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // Toggle dropdown on click for mobile
+  const handleDropdownToggle = () => {
+    setShowDropdown(!showDropdown);
+  };
+
+  // Close menu and dropdown
+  const closeMenus = () => {
+    setIsMenuOpen(false);
+    setShowDropdown(false);
+  };
+
   return (
     <nav className="navbar">
-      {/* ✅ Top Row: Logo + Menu Icon + Cart */}
       <div className="top-row">
         <div className="logo">꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹.𝓬𝓸𝓶 ༻꧂</div>
-
-        {/* ✅ Menu Icon for mobile */}
-        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          ☰
-        </div>
+        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>☰</div>
       </div>
 
-      {/* ✅ Search Bar */}
       <div className="search-bar">
         <input type="text" placeholder="Search products..." />
         <button><FaSearch /></button>
       </div>
 
-      {/* ✅ Navigation Links */}
       <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
-        <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
-        <li><Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link></li>
+        <li><Link to="/" onClick={closeMenus}>Home</Link></li>
+        <li><Link to="/products" onClick={closeMenus}>Products</Link></li>
 
-        {/* ✅ Categories Dropdown */}
-        <li
-          className="dropdown"
-          onMouseEnter={() => setShowDropdown(true)}
-          onMouseLeave={() => setShowDropdown(false)}
-        >
-          <span className="dropbtn">Categories ▼</span>
+        {/* Dropdown */}
+        <li className="dropdown">
+          <span className="dropbtn" onClick={handleDropdownToggle}>Categories ▼</span>
           {showDropdown && (
             <ul className="dropdown-menu">
-              <li><Link to="/category/fashion">Fashion</Link></li>
-              <li><Link to="/category/electronics">Electronics</Link></li>
-              <li><Link to="/category/home-living">Home & Living</Link></li>
-              <li><Link to="/category/appliances">Appliances</Link></li>
+              <li><Link to="/category/fashion" onClick={closeMenus}>Fashion</Link></li>
+              <li><Link to="/category/electronics" onClick={closeMenus}>Electronics</Link></li>
+              <li><Link to="/category/home-living" onClick={closeMenus}>Home & Living</Link></li>
+              <li><Link to="/category/appliances" onClick={closeMenus}>Appliances</Link></li>
             </ul>
           )}
         </li>
 
-        {/* ✅ Cart */}
         <li>
-          <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
+          <Link to="/cart" onClick={closeMenus}>
             🛒 Cart <span className="cart-count">({cartItems.length})</span>
           </Link>
         </li>
-
-        {/* ✅ Login */}
-        <li><Link to="/login" onClick={() => setIsMenuOpen(false)}><FaUser /> Login</Link></li>
+        <li><Link to="/login" onClick={closeMenus}><FaUser /> Login</Link></li>
       </ul>
     </nav>
   );

@@ -208,3 +208,8 @@
     background: rgba(255, 255, 255, 0.2);
   }
 }
+
+/* Smooth Dropdown for Mobile */
+.dropdown-menu {
+  transition: all 0.3s ease-in-out;
+}
