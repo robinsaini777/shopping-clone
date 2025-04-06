@@ -7,20 +7,33 @@ import { useSelector } from "react-redux";
 const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.cartItems);
   const [showDropdown, setShowDropdown] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <nav className="navbar">
-      <div className="logo"> ꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹.𝓬𝓸𝓶 ༻꧂ </div>
+      {/* ✅ Top Row: Logo + Menu Icon + Cart */}
+      <div className="top-row">
+        <div className="logo">꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹.𝓬𝓸𝓶 ༻꧂</div>
+
+        {/* ✅ Menu Icon for mobile */}
+        <div className="menu-icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          ☰
+        </div>
+      </div>
+
+      {/* ✅ Search Bar */}
       <div className="search-bar">
         <input type="text" placeholder="Search products..." />
         <button><FaSearch /></button>
       </div>
-      <ul>
-        <li><Link to="/">Home</Link></li>
-        <li><Link to="/products">Products</Link></li>
 
-        {/* Categories Dropdown with Hover */}
-        <li 
+      {/* ✅ Navigation Links */}
+      <ul className={`nav-links ${isMenuOpen ? "active" : ""}`}>
+        <li><Link to="/" onClick={() => setIsMenuOpen(false)}>Home</Link></li>
+        <li><Link to="/products" onClick={() => setIsMenuOpen(false)}>Products</Link></li>
+
+        {/* ✅ Categories Dropdown */}
+        <li
           className="dropdown"
           onMouseEnter={() => setShowDropdown(true)}
           onMouseLeave={() => setShowDropdown(false)}
@@ -36,49 +49,18 @@ const Navbar = () => {
           )}
         </li>
 
+        {/* ✅ Cart */}
         <li>
-          <Link to="/cart">
-            Cart 🛒 <span className="cart-count">({cartItems.length})</span>
+          <Link to="/cart" onClick={() => setIsMenuOpen(false)}>
+            🛒 Cart <span className="cart-count">({cartItems.length})</span>
           </Link>
         </li>
-        <li><Link to="/login"><FaUser /> Login</Link></li>
+
+        {/* ✅ Login */}
+        <li><Link to="/login" onClick={() => setIsMenuOpen(false)}><FaUser /> Login</Link></li>
       </ul>
     </nav>
   );
 };
 
 export default Navbar;
-
-
-// import React from "react";
-// import "../styles/Navbar.css";
-// import { Link } from "react-router-dom";
-// import { FaSearch, FaUser } from "react-icons/fa";
-// import { useSelector } from "react-redux";
-
-// const Navbar = () => {
-//   const cartItems = useSelector((state) => state.cart.cartItems);
-//   return (
-//     <nav className="navbar">
-//       <div className="logo"> ꧁༺ 𝓜𝔂𝓼𝓱𝓸𝓹.𝓬𝓸𝓶 ༻꧂ </div>
-//       <div className="search-bar">
-//         <input type="text" placeholder="Search products..." />
-//         <button><FaSearch /></button>
-//       </div>
-//       <ul>
-//         <li><Link to="/">Home</Link></li>
-//         <li><Link to="/products">Products</Link></li>
-//         <li>
-//           <Link to="/cart">
-//             Cart 🛒 <span className="cart-count">({cartItems.length})</span>
-//           </Link>
-//         </li>
-//         <li><Link to="/login"><FaUser /> Login</Link></li>
-//       </ul>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
-
-
